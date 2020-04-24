@@ -1,0 +1,489 @@
+                                       <h1>CSS Properties</h1>
+
+                                          <h1>Background</h1>
+<p>
+Background{
+background-color: lightblue;
+background-image: url('img/nature/img-9.jpg');
+background-repeat: no-repeat;
+background-position: center top;
+background-attachment: fixed;
+background-attachment: scroll;
+background: #ffffff url("img_tree.png") no-repeat right top;  (sorthand)
+}	
+</p> 
+                                          <h1>Border</h1>
+<p>
+border{
+border-width: 5px;
+border-top-width: 10px;
+border-color: green;
+border-top-color: green;
+border-style: dotted,dashed,solid,double,groove,ridge,inset,outset,none,hidden,dotted dashed solid double;	
+border-top-style: dotted;
+border-radius: 20px; (Round)
+border: 5px solid red;	(sorthand)
+}
+                                            <h1>Padding</h1>
+<p>
+padding{
+padding: 25px 50px 75px 100px; (top+left+buttom+right)
+padding: 25px 50px 75px; (top,left+right,buttom)
+padding: 25px 50px; (left+right)
+padding-top:10px;
+padding-right:10px;
+padding-bottom:10px;
+padding-leftt:10px;
+}
+  
+                                              <h1>Margin</h1>
+<p>
+margin{
+margin: 25px 50px 75px 100px; (top+left+buttom+right)
+margin: 25px 50px 75px;(top, left+right,buttom)
+margin: 25px 50px; (left+right)
+margin-top:10px;
+margin-right:10px;
+margin-bottom:10px;
+margin-leftt:10px;
+}
+                                               <h1>Text</h1>
+text-decoration{
+text-decotrtion:none;overline;underline;line-through;
+}
+                                                    
+text-transform{
+text-trnasform: uppercase;lowercase;capitalize;
+}
+text-space{
+text-indent:30px;
+letter-spacing: 3px;
+word-spacing: 10px;
+line-height: 0.8;
+white-space: nowrap;
+text-shadow: 2px 2px 5px red;
+}
+                                                
+                                               <h1>Font</h1>
+font{
+font-style=bold;
+font-weight: bold;
+font-style: italic;
+font-variant: small-caps;normal; (small-caps:My name is Hege Refsnes; normal:My name is Hege Refsnes.)
+font: italic bold 30px/30px Georgia, serif;
+}
+                                               <h1>List</h1>
+font{
+list-style-type=square;
+list-style-image=url('');
+}
+                                          <h1> ALL BOOTSTRAP 4 CLASSES</h1>
+                                                   
+Alerts
+.alert-danger
+.alert-dark
+.alert-dismissible
+.alert-heading
+.alert-info
+.alert-light
+.alert-link
+.alert-primary
+.alert-secondary
+.alert-success
+.alert-warning
+Badges
+.badge
+.badge-danger
+.badge-dark
+.badge-info
+.badge-light
+.badge-pill
+.badge-primary
+.badge-secondary
+.badge-success
+.badge-warning
+Borders
+.border
+.border-*-0
+.border-danger
+.border-dark
+.border-info
+.border-light
+.border-primary
+.border-secondary
+.border-success
+.border-warning
+.border-white
+.rounded
+.rounded-*
+.rounded-0
+.rounded-circle
+Breadcrumbs
+.breadcrumb
+Button Groups
+.btn-group
+.btn-group (nested)
+.btn-group-lg
+.btn-group-sm
+.btn-group-vertical
+.btn-toolbar
+Button Modifiers
+.active button
+.btn-block
+.btn-lg
+.btn-sm
+.checkbox as button
+.disabled button
+.radio as button
+Buttons
+.btn-danger
+.btn-dark
+.btn-info
+.btn-light
+.btn-link
+.btn-outline-danger
+.btn-outline-dark
+.btn-outline-info
+.btn-outline-light
+.btn-outline-primary
+.btn-outline-secondary
+.btn-outline-success
+.btn-outline-warning
+.btn-primary
+.btn-secondary
+.btn-success
+.btn-warning
+Cards
+.card
+.card bg-... text-...
+.card-body
+.card-columns
+.card-deck
+.card-footer
+.card-group
+.card-header
+.card-img-bottom
+.card-img-overlay
+.card-img-top
+.card-link
+.card-subtitle
+.card-text
+.card-title
+.h*.card-header
+.list-group
+.middle image
+Carousel
+.carousel slide
+.carousel-caption
+.carousel-fade
+.carousel-indicators
+Collapse
+.accordion
+.collapse
+Colors
+.bg-danger
+.bg-dark
+.bg-info
+.bg-light
+.bg-primary
+.bg-secondary
+.bg-success
+.bg-warning
+.bg-white
+.text-danger
+.text-dark
+.text-info
+.text-light
+.text-primary
+.text-secondary
+.text-success
+.text-warning
+.text-white
+Custom Forms
+.custom-checkbox
+.custom-file
+.custom-radio
+.custom-range
+.custom-select
+.custom-switch
+Display
+.d-*-block
+.d-*-flex
+.d-*-inline
+.d-*-inline-block
+.d-*-inline-flex
+.d-*-none
+.d-*-table
+.d-*-table-cell
+.d-print-...
+Dropdowns
+.dropdown
+.dropdown (split)
+.dropdown-divider
+.dropdown-header
+.dropdown-item disabled
+.dropdown-item-text
+.dropdown-menu-right
+.dropleft
+.dropright
+.dropup
+.dropup (split)
+Flexbox
+.align-content-*-around
+.align-content-*-center
+.align-content-*-end
+.align-content-*-start
+.align-content-*-stretch
+.align-items-*-baseline
+.align-items-*-center
+.align-items-*-end
+.align-items-*-start
+.align-items-*-stretch
+.align-self-*-baseline
+.align-self-*-center
+.align-self-*-end
+.align-self-*-start
+.align-self-*-stretch
+.flex-*-column
+.flex-*-column-reverse
+.flex-*-grow-0
+.flex-*-grow-1
+.flex-*-nowrap
+.flex-*-row
+.flex-*-row-reverse
+.flex-*-shrink-0
+.flex-*-shrink-1
+.flex-*-wrap
+.flex-*-wrap-reverse
+.flex-fill
+.justify-content-*-around
+.justify-content-*-between
+.justify-content-*-center
+.justify-content-*-end
+.justify-content-*-start
+.order-*-#
+Form Input Groups
+.checkbox
+.dropdown
+.input-group
+.input-group-append
+.input-group-lg
+.input-group-prepend
+.input-group-sm
+.radio
+.segmented buttons
+Forms
+form (full example)
+.disabled items
+.form using the grid
+.form-check
+.form-check-inline
+.form-control
+.form-control-file
+.form-control-lg
+.form-control-plaintext
+.form-control-range
+.form-control-sm
+.form-group
+.form-inline
+.readonly
+Grid
+.col
+.col-*
+.col-# (<576px)
+.col-lg-# (≥992px)
+.col-md-# (≥768px)
+.col-sm-# (≥576px)
+.col-xl-# (≥1200px)
+.container
+.container-fluid
+.nested columns
+.no-gutters
+.offset-*-#
+.order-#
+.row
+Images
+.img-fluid
+.img-thumbnail
+Jumbotron
+.jumbotron
+.jumbotron-fluid
+List Group
+.list-group
+.list-group with badges
+.list-group with d-flex
+.list-group-item active
+.list-group-item disabled
+.list-group-item-action
+.list-group-item-danger
+.list-group-item-dark
+.list-group-item-info
+.list-group-item-light
+.list-group-item-primary
+.list-group-item-secondary
+.list-group-item-success
+.list-group-item-warning
+Media Objects
+.d-flex align-self-center
+.d-flex align-self-end
+.d-flex align-self-start
+.media
+.nested media
+.right aligned media
+Misc
+.close
+.embed-responsive
+.invisible
+.shadow
+.shadow-lg
+.shadow-none
+.shadow-sm
+.sr-only
+.sr-only-focusable
+.visible
+Modal
+.modal
+.modal fade
+.modal-dialog-centered
+.modal-lg
+.modal-sm
+.modal-xl
+Navbar
+.collapse navbar-collapse
+.navbar
+.navbar fixed-bottom
+.navbar fixed-top
+.navbar sticky-top
+.navbar with form
+.navbar-brand
+.navbar-dark bg-dark
+.navbar-expand-*
+.navbar-light
+.navbar-text
+.navbar-toggler
+Navs
+.nav flex-column
+.nav justify-content-*
+.nav with flex utils
+.nav-fill
+.nav-justified
+.nav-pills
+.nav-pills with dropdown
+.nav-tabs
+.nav-tabs with dropdown
+.nav.nav
+.ul.nav
+Pagination
+.page-item active
+.page-item disabled
+.pagination
+.pagination-lg
+.pagination-sm
+Popover
+.dismissible popover
+.popovers
+Positioning
+.align-*
+.clearfix
+.fixed-bottom
+.fixed-top
+.float-*-left
+.float-*-none
+.float-*-right
+.sticky-top
+Progress
+.multiple progress-bar
+.progress
+.progress-bar
+.progress-bar bg-*
+.progress-bar with height
+.progress-bar with label
+.progress-bar-animated
+.progress-bar-striped
+.progress-bar-striped bg-*
+Scrollspy
+.data-spy
+Sizing
+.h-100
+.mh-100
+.mw-100
+.w-100
+Spacing
+.m-1 / m-*-#
+.m-n1 / m-*-n#
+.mb-1 / mb-*-#
+.ml-1 / ml-*-#
+.mr-1 / mr-*-#
+.mt-1 / mt-*-#
+.mx-1 / mx-*-#
+.my-1 / my-*-#
+.p-1 / p-*-#
+.pb-1 / pb-*-#
+.pl-1 / pl-*-#
+.pr-1 / pr-*-#
+.pt-1 / pt-*-#
+.px-1 / px-*-#
+.py-1 / py-*-#
+Spinner
+.spinner-border
+.spinner-border text-*
+.spinner-border-sm
+.spinner-grow
+.spinner-grow text-*
+.spinner-grow-sm
+Tables
+.table
+.table-*-responsive
+.table-active
+.table-bordered
+.table-borderless
+.table-danger
+.table-dark
+.table-hover
+.table-info
+.table-light
+.table-primary
+.table-reflow
+.table-secondary
+.table-sm
+.table-striped
+.table-success
+.table-warning
+.thead-dark
+.thead-light
+Text
+.font-italic
+.font-weight-bold
+.font-weight-bolder
+.font-weight-light
+.font-weight-lighter
+.font-weight-normal
+.text-*-center
+.text-*-left
+.text-*-right
+.text-black-50
+.text-body
+.text-capitalize
+.text-decoration-none
+.text-hide
+.text-justify
+.text-lowercase
+.text-monospace
+.text-muted
+.text-nowrap
+.text-truncate
+.text-uppercase
+.text-white-50
+Toasts
+.toast
+Tooltips
+.tooltip
+Typography
+.blockquote
+.blockquote-footer
+.blockquote-reverse
+.display-# (1-4)
+.dl-horizontal
+.lead
+.list-inline
+.list-unstyled
