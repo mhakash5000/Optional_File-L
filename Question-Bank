@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<div class="container">
+<p>
+*.ctrl+shipt+delete=cash clear command <br>
+*php artisan make:model Student -mcr(model,table,resourse)
+*dd($request->all()); to get data;
+	                                                <h1>Php laravel question</h1>
+Laravel interview quiestion <br>
+0) What is Laravel? <br>
+Laravel is open-source web framework based on PHP.Laravel is free to use.It supports the MVC (Model-View-Controller) architectural pattern.
+It is developed by Taylor Otwell.The first version of Laravel was released on 9th June 2011. <br>
+
+1) What is MVC? <br>
+when user sent http request by route it goes in controller then model after that database then it return in model then controller.
+controller sent to in view.than user can see output.
+*user request-->Routing->controller--><--model--><--database
+                             |-->view
+                             <br>
+2) What are the main features of Laravel? <br>
+Some of the main features of Laravel are: <br>
+*Query builder <br>
+*Reverse Routing <br>
+*Restful Controllers <br>
+*Migrations <br>
+*Database Seeding <br>
+*Unit Testing <br>
+*Homestead <br>
+
+3) What do you understand by Eloquent ORM? <br>
+Eloquent ORM (Object-Relational Mapping) is one of the main features of the Laravel framework. <br>
+It may be defined as an advanced PHP implementation of the active record pattern.
+Active record pattern is an architectural pattern. <br>
+*Eloquent হচ্ছে Database এর query এর জন্য একটি নতুন এবং advance কৌশল যা আপনার Database এর complex query এর জন্য সহজ syntax প্রদান করে
+
+4) What is Query Builder in Laravel? <br>
+Laravel's Query Builder provides more direct access to the database, alternative to the Eloquent ORM. <br>
+ It doesn't require SQL queries to be written directly. <br>
+ It offers a set of classes and methods which are capable of building queries programmatically. <br>
+
+5)What are Some aggregates methods provides by the Laravel's query builder?
+Some of the methods that Query Builder provides are: <br>
+
+count() <br>
+max() <br>
+min() <br>
+avg() <br>
+sum() <br>
+
+6) What is routing? <br>
+All Laravel routes are defined in route files, which are stored in the routes directory. These files are loaded by the MVC framework.
+Those routes are allotted as the web middleware group, which provide features such as session state and CSRF protection. <br>
+
+7)What is MiddleWare? <br>
+MiddleWare is a controller.It is used to protect Route. if user is authenticated,
+ the middleware will allow to access otherwise middleware will not allow to access. <br>
+ 
+8)PHP তে Anonymous function কি? <br>
+ anonymous function মানে হচ্ছে নাম বিহীন function, সুতরাং PHP তে যখন কোনো function 
+ declare বা ঘোষণা করা হয়, কিন্তু function টির কোনো নাম থাকেনা, PHP তে সেই function কে anonymous function বলে। <br>
+ নোট : anonymous function অবশ্যই semi-colon (;) দিয়ে শেষ করতে হয়।
+ PHP তে anonymous function কে array element and call back function হিসেবে ব্যবহার করা যাবে। <br>
+ example <br>
+ <?php
+// Assign an anonymous function to a variable
+$makeGreeting = function( $name, $timeOfDay ) {
+  return "Good $timeOfDay, $name!";
+}; <br>
+echo $makeGreeting("Omran","Morning"); 
+//Result: Good Morning Omran!
+?> <br>
+
+9)PHP তে closures কি ? <br>
+closure হচ্ছে একটা object যা anonymous function কে represent করে । অন্য ভাবে বলা যায়,closure হচ্ছে 
+anonymous function কে Object Oriented way তে ব্যবহার করার মাধ্যম।  <br>
+
+10)PHP তে Lambda function কি? <br>
+যখন একটি anonymous function অন্য একটা function এর argument হিসেবে pass হয়, তখন সেটিকে বলা হয় lambda function. <br>
+example:
+<?php
+// Pass Lambda to function
+function shout ($message){
+  echo $message();
+}
+  
+// Call function
+shout(function(){
+  return "Hello world";
+});
+?>
+
+11)What type of Parameter??
+*Required Parameters
+*Optional Parameters
+</p>
+			<h1>Run Laravel project after downloading from github/gitlab</h1>
+<p>
+Step:
+1. download or clone project </br>
+2. Go to the folder application using cd </br>
+3. Run composer install on your cmd or terminal </br>
+4. Copy .env.example file to .env on root folder. </br>
+    You can type copy .env.example .env if using command prompt Windows </br>
+     or cp .env.example .env if using terminal Ubuntu</br>
+5. Open your .env file and change the database name (DB_DATABASE)</br>
+6. Run php artisan key:generate </br>
+7. Run php artisan migrate </br>
+8.Run php artisan serve</br>
+</p>
+
+                                          <h1>Laravel Routing</h1>
+
+<p>
+1.url('/') </br>
+2.URL::to('about') </br>
+example: Both are same </br>
+route::get('/about','HomeController@home'); </br>
+3."{{route('about')}}" </br>
+* example:name route </br>
+route::get('/about','HomeController@home')->name('about'); </br>	
+route::get(md5('/about'),'HomeController@home')->name('about'); </br>
+example: for encrypt use md5('/about') / encrypt('/about')                              
+</p>
+
+
+                                      <h1>Laravel Value Pass Without database</h1>
+
+
+<p> Route::get('/about', function () {
+    return view('admin',['variablename'=>'valueofvariable']); </br>
+    Declare: my variable value is {{$varablename}} </br>
+
+});
+</p>
+                                             <h1>WORK AFTER DOWNLOAD/CLONE FROM GIT LARAVEL PROJECT </h1>
+<p>
+Step:
+1. download or clone project
+2. Go to the folder application using cd
+3. Run composer install on your cmd or terminal
+4. Copy .env.example file to .env on root folder. 
+You can type copy .env.example .env if using command prompt Windows 
+ or cp .env.example .env if using terminal Ubuntu
+5. Open your .env file and change the database name (DB_DATABASE)
+6. Run php artisan key:generate
+7. Run php artisan migrate
+8.Run php artisan serve
+</p>
+</div>
+</body>
+</html>
