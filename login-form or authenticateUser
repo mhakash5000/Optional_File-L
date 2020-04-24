@@ -1,0 +1,53 @@
+   <form action="{{route('login')}}" method="post" enctype="multipart/form-data" autocomplete="on" class="form-inline">
+                @csrf
+                {{-- this login form by javaScript --}}
+                {{-- <div class="form-group col-12 mb-3">
+                    <label for="fatherEmail" class="col-sm-3 col-form-label text-right">Email/phone</label>
+                    <select id="credential">
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror col-md-8  " name="email" id="input_email" placeholder="email" value="example@gmail.com"  required  autofocus>
+                                <input type="tel" class="form-control @error('mobile') is-invalid  @enderror col-md-8 " name="mobile" id="input_phone" placeholder="mobile" value="+880XXXXXXXX"  required  autofocus>
+                    </select>
+                </div> --}}
+                                       {{-- Login form by laravel 6(AuthenticationUsers.php in loginController) --}}
+                <div class="form-group col-12 mb-3">
+                    <label for="tel" class="col-sm-3 col-form-label text-right">Email/Username</label>
+                    <div class="input-group col-sm-9 pl-0 pr-0">
+                        <input id="mobile" type="text" class="form-control @error('email') is-invalid @enderror || @error('mobile') is-invalid @enderror"
+                         placeholder="email or Phone"  value="{{ old('mobile') }}" name="mobile" required autocomplete="mobile">
+
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group col-12 mb-3">
+                    <label for="password" class="col-sm-3 col-form-label text-right">Password</label>
+                    <div class="input-group col-sm-9 pl-0 pr-0">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password"
+                         id="password" name="password" required autocomplete="current-password">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="passwordToggle"><i class="fa fa-eye-slash"></i></span>
+                        </div>
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-12 mb-3">
+                    <label class="col-sm-3"></label>
+                    <button type="submit" class="col-sm-9 btn btn-block my-btn-submit">Login</button>
+                </div>
+            </form>
+            
+            
+                                AUTHENTICATE USER
+ 
+     public function username()
+    {
+        $loginType = request()->input('mobile');
+        $this->mobile = filter_var($loginType, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
+        request()->merge([$this->mobile => $loginType]);
+
+        return property_exists($this, 'mobile') ? $this->mobile : 'email';
+
+    }
+                                
