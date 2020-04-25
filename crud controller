@@ -37,7 +37,16 @@ class UserController extends Controller
        $userData->phone=$request->phone;
        $userData->email=$request->email;
        $userData->password=bcrypt($request->password);
-       $userData->image=$request->image;
+       if($request->hasFile('image')){
+            $file=$request->file('image');
+            $extension=$file->getClientOriginalExtension();
+            $myImage=time().'.'.$extension;
+            $file->move('upload/user_images/',$myImage);
+            $userData->image=$myImage;
+        }else{
+            return $request;
+            $userData->image='';
+        }
        $userData->save();
        Session::flash('success','User Created successfully');
        return redirect()->back();
