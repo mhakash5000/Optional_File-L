@@ -69,7 +69,13 @@ class UserController extends Controller
         $update->name=$request->name;
         $update->phone=$request->phone;
         $update->email=$request->email;
-        $update->image=$request->image;
+            if($request->hasFile('image')){
+            $file=$request->file('image');
+            $extension=$file->getClientOriginalExtension();
+            $myImage=time().'.'.$extension;
+            $file->move('upload/user_images/',$myImage);
+            $update->image=$myImage;
+        }
         $update->save();
         Session::flash('success','User Updated successfully');
        return redirect()->back();
