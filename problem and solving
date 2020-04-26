@@ -79,16 +79,11 @@ public function run()
                 });
   </script>
 
-5. if image not in folder then will show an another image(no_image.png)
-
- <img class="profile-user-img img-fluid img-circle"
- src="{{(!empty($user->image))?url('public/upload/user_images/'.$user->image):url('public/upload/no_image.png')}}"
-
-6.laravel validation for input field 
+5.laravel validation for input field 
       
 <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
 
-7.User/Authtentication role set
+6.User/Authtentication role set
 
 example:
 @if(Auth::user()->role=='Admin/User')
