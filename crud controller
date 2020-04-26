@@ -51,12 +51,6 @@ class UserController extends Controller
        Session::flash('success','User Created successfully');
        return redirect()->back();
     }
-    public function show($id)
-    {
-        //
-    }
-
-
     public function edit($id)
     {
         $data=User::find($id);
