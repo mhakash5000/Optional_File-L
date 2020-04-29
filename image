@@ -1,4 +1,4 @@
-1. Code for User image Upload and show Auth()->user()  by user this command "php artisan storage:link"
+1. User image Upload and show for Autenticate User by user this command "php artisan storage:link"
 ***<img src="{{asset('/storage/images/'.Auth::user()->avatar)}}" width="50px; heigth:50px">***
 
  public function UpdateImage(Request $request){
