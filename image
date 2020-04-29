@@ -1,3 +1,33 @@
+1. Code for User image Upload and show Auth()->user()  by user this command "php artisan storage:link"
+***<img src="{{asset('/storage/images/'.Auth::user()->avatar)}}" width="50px; heigth:50px">***
+
+ public function UpdateImage(Request $request){
+
+        if($request->hasFile('image')){
+            $filename=($request->image->getClientOriginalName());
+            $request->image->storeAs('images',$filename,'public');
+            User::find(1)->update(['avatar'=>$filename]);
+        }
+        return redirect()->back();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 0.
 <script>
        
