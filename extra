@@ -1,0 +1,6 @@
+1.for increase
+@php($i=1);
+{{$i++}}
+
+2.for time setting when it is uploaded
+<td>{{$user->created_by->diffForHumans()}}</td>
