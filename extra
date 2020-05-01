@@ -4,3 +4,7 @@
 
 2.for time setting when it is uploaded
 <td>{{$user->created_by->diffForHumans()}}</td>
+
+3.for date and time when it file is uploaded(use in controller)
+date('YmdHi')
+
