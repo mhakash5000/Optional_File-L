@@ -1,0 +1,6 @@
+<label for="my-input">User Role</label>
+    <select name="usertype" id="" class="form-control">
+        <option value="">Select Role</option>
+        <option value="Admin"{{($data->usertype=="Admin")?"selected":""}}>Admin</option>
+        <option value="User"{{($data->usertype=="Admin")?"selected":""}}>User</option>
+    </select>
