@@ -1,0 +1,15 @@
+1.Backend to frontend data(logo) pass system,
+Example:
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+**use App\model\Logo;
+
+class FrontendController extends Controller
+{
+public function index()
+{
+    $data['logo']=Logo::first();
+    return view('frontend.layouts.home',$data);
+}
+}
+<img src="{{asset('upload/user_images/'.$logo->image)}}"></a>
