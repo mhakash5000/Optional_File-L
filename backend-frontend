@@ -1,4 +1,4 @@
-1.Backend to frontend data(logo) pass system,
+1.Backend to frontend data/logo pass system,
 Example:
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
