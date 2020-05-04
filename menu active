@@ -1,0 +1,23 @@
+*menu active and menu-open class in admin panel
+@php
+    $prefix=Request::route()->getPrefix();
+    $route=Route::current()->getName();
+@endphp
+{{-- @dd($prefix); --}}
+  <li class="nav-item has-treeview {{($prefix=='/users')?'menu-open':''}} ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                User Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('users.all')}}" class="nav-link {{($route=='users.all')?'active':''}} ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User List</p>
+                </a>
+              </li>
+            </ul>
+        </li>
