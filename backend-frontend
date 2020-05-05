@@ -1,1 +1,16 @@
-
+1.Slider
+@php
+    $count=0;
+@endphp
+<div class="carousel-inner" role="listbox">
+@foreach ($sliders as $slider)
+<div class="carousel-item @if($count==0){ active } @endif " style="background-image: url('{{asset('upload/user_images/'.$slider->image)}}">
+ <div class="carousel-caption d-none d-md-block">
+   <h2 class="display-4">{{$slider->sort_title}}</h2>
+   <p class="lead" >{{$slider->long_title}}</p>
+ </div>
+</div>
+@php
+   $count++
+@endphp
+@endforeach
