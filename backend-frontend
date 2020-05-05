@@ -2,15 +2,20 @@
 @php
     $count=0;
 @endphp
+<ol class="carousel-indicators">
+@foreach($sliders as $key=> $slider)
+   <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}" class="@if($count==0){ active } @endif"></li>
+@endforeach
+</ol>
 <div class="carousel-inner" role="listbox">
 @foreach ($sliders as $slider)
-<div class="carousel-item @if($count==0){ active } @endif " style="background-image: url('{{asset('upload/user_images/'.$slider->image)}}">
- <div class="carousel-caption d-none d-md-block">
-   <h2 class="display-4">{{$slider->sort_title}}</h2>
-   <p class="lead" >{{$slider->long_title}}</p>
- </div>
-</div>
+   <div class="carousel-item @if($count==0){ active } @endif " style="background-image: url('{{asset('upload/user_images/'.$slider->image)}}">
+      <div class="carousel-caption d-none d-md-block">
+      <h2 class="display-4">{{$slider->sort_title}}</h2>
+     <p class="lead" >{{$slider->long_title}}</p>
+   </div>
+  </div>
 @php
-   $count++
+$count++
 @endphp
 @endforeach
