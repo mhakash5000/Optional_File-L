@@ -39,6 +39,7 @@ MAIL_ENCRYPTION=tls
     <p>Email : {{$email}} </p>
     <p>Massage : {{$massage}} </p>
 </div>
+<p><strong> We will recieved your massage.We will contact as soon as possibe </strong></p>
 3.Controller whice one is upper ContactUsStore function
 4.Secuirity setting in google account (Less secure app access will On)
 5.config(mail.php)
