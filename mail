@@ -23,13 +23,14 @@
         Session::flash('success','Massage Sent Successfully');
         return redirect()->back();
     }
-    1. .env
- MAIL_DRIVER=smtp
+ 1. .env file
+MAIL_DRIVER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
 MAIL_USERNAME=mhakash5000@gmail.com
 MAIL_PASSWORD=1234
 MAIL_ENCRYPTION=tls
+
 2. email.blade.php(example)
 <p>Your Details</p>
 <div style:"padding-left:50px;">
@@ -38,3 +39,14 @@ MAIL_ENCRYPTION=tls
     <p>Email : {{$email}} </p>
     <p>Massage : {{$massage}} </p>
 </div>
+3.Controller whice one is upper ContactUsStore function
+4.Secuirity setting in google account (Less secure app access)
+5.config(mail.php)
+  //Customize by Mh Akash
+    'stream'=>[
+        'ssl'=>[
+            'allow_self_signed'=>true,
+            'verify_peer'=>false,
+            'verify_peer_name'=>false,
+        ],
+    ],
