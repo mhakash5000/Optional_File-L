@@ -1,0 +1,40 @@
+  public function ContactUsStore(Request $request)
+    {
+        $contactUs=new ContactUs();
+        $contactUs->name=$request->name;
+        $contactUs->phone=$request->phone;
+        $contactUs->email=$request->email;
+        $contactUs->massage=$request->massage;
+        $contactUs->save();
+        
+        
+        //MAIL START FORM HERE
+        $mail=array(
+            'name'=>$request->name,
+            'phone'=>$request->phone,
+            'email'=>$request->email,
+            'massage'=>$request->massage
+        );
+        Mail::send('frontend.Email.email-contact',$mail,function($MailMassage)use($mail){
+            $MailMassage->from('mhakash5000@gmail.com','CodingDuck');
+            $MailMassage->to($mail['email']);
+            $MailMassage->subject('Thank you so much for contact with us');
+        });
+        Session::flash('success','Massage Sent Successfully');
+        return redirect()->back();
+    }
+    1. .env
+ MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=mhakash5000@gmail.com
+MAIL_PASSWORD=1234
+MAIL_ENCRYPTION=tls
+2. email.blade.php(example)
+<p>Your Details</p>
+<div style:"padding-left:50px;">
+    <p>Name : {{$name}} </p>
+    <p>Phone : {{$phone}} </p>
+    <p>Email : {{$email}} </p>
+    <p>Massage : {{$massage}} </p>
+</div>
