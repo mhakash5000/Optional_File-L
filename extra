@@ -7,4 +7,8 @@
 
 3.for date and time when it file is uploaded(use in controller)
 date('YmdHi')
+**
+php artisan config:cache
+php artisan cache:clear
+php artisan view:clear
 
