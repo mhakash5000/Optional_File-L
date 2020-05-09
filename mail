@@ -16,8 +16,8 @@
             'massage'=>$request->massage
         );
         Mail::send('frontend.Email.email-contact',$mail,function($MailMassage)use($mail){
-            $MailMassage->from('mhakash5000@gmail.com','CodingDuck');
-            $MailMassage->to($mail['email']);
+            $MailMassage->from($mail['email'],'CodingDuck');
+            $MailMassage->to('mhakash5000@gmail.com');
             $MailMassage->subject('Thank you so much for contact with us');
         });
         Session::flash('success','Massage Sent Successfully');
@@ -43,7 +43,7 @@ MAIL_ENCRYPTION=tls
 3.Controller whice one is upper ContactUsStore function
 4.Secuirity setting in google account (Less secure app access will On)
 5.config(mail.php)
-  //Customize by Mh Akash
+  //Customize by Mh Akash but without this code email can be work
     'stream'=>[
         'ssl'=>[
             'allow_self_signed'=>true,
