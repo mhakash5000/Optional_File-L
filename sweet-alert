@@ -1,0 +1,50 @@
+{{-- sweet alert --}}
+
+<a href="{{route('contacts.destroy',$item->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+   {{-- sweet alert to delete --}}
+  <script>
+      $(function(){
+          $(document).on('click','#delete',function(e){
+           e.preventDefault();
+           var link =$(this).attr('href');
+           const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.value) {
+                window.location.href=link;
+                swalWithBootstrapButtons.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'Your file is safe :)',
+                'error'
+                )
+            }
+            })
+                    });
+                });
+  </script>
