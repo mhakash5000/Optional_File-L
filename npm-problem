@@ -1,0 +1,35 @@
+1) npx create-react-app could not install from as it does not contain package.json problem
+   solution command: npm config set cache "C:\\Users\\Naveen~Guleria\\AppData\\Roaming\\npm-cache" --global 
+
+
+C:\Users\Susselle>npx create-react-app playground
+
+Creating a new React app in C:\Users\Susselle\playground.
+
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts with cra-template...
+
+npm ERR! code EINVAL
+npm ERR! syscall mkdir
+npm ERR! path C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp
+npm ERR! errno -4071
+npm ERR! EINVAL: invalid argument, mkdir 'C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp'
+npm ERR! code EINVAL
+npm ERR! syscall mkdir
+npm ERR! path C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp
+npm ERR! errno -4071
+npm ERR! EINVAL: invalid argument, mkdir 'C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp'
+npm ERR! code EINVAL
+npm ERR! syscall mkdir
+npm ERR! path C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp
+npm ERR! errno -4071
+npm ERR! EINVAL: invalid argument, mkdir 'C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp'
+npm ERR! code EINVAL
+npm ERR! syscall mkdir
+npm ERR! path C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp
+npm ERR! errno -4071
+npm ERR! EINVAL: invalid argument, mkdir 'C:\Users\Susselle\AppData\Roaming\npm-cache" --global\_cacache\tmp'
+
+Aborting installation.
+  npm install --save --save-exact --loglevel error react react-dom react-scripts cra-template has failed.
+
