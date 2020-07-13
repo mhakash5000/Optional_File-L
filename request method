@@ -1,0 +1,32 @@
+1 php artisan make:request name
+
+ public function update(CategoryRequest $request, $id)
+    {
+        $update=Category::find($id);
+        $update->updated_by=Auth::user()->id;
+        $update->name=$request->name;
+        $update->created_by=$request->created_by;
+        $update->updated_by=$request->updated_by;
+        $update->save();
+        Session::flash('success','Category Updated successfully');
+       return redirect()->back();
+    }
+    
+    
+    //Dublicate value will not take by this code
+    
+    class CategoryRequest extends FormRequest
+{
+
+    public function rules()
+    {
+        if(isset($this->id)){
+            return[
+                'name' => 'required|unique:categories,name',$this->id
+            ];
+            }
+                return[
+                'name' => 'required|unique:categories'
+                ];
+    }
+}
