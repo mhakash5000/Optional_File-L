@@ -38,8 +38,8 @@ function showImage(data, imgId){
         obj.readAsDataURL(data.files[0]);
     }
 }
-//Image Show Before Upload End
+//javascript onchange method for image showing Before Upload
   </script>
  <img src="{{asset('upload/user_images/'.$data->image)}}" id="image" style="width:464px;height:300px">
  <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
- //javascript onchange method for image showing
+ //
