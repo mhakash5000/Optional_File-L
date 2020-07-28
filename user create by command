@@ -1,3 +1,6 @@
 php artisan tinker
 $user->name("akash");
+$user->email("mhakash5000@gmail.com");
 $user->password=Hase::make("1234");
+$user->save();
+
