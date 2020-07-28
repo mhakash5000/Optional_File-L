@@ -1,0 +1,3 @@
+php artisan tinker
+$user->name("akash");
+$user->password=Hase::make("1234");
