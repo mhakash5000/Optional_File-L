@@ -1,131 +1,284 @@
 *******************************
-    ****home.blade.php****
+    ****routes****
 *******************************
-@extends('layouts.app')
-
+//DeveloperInfo routes start from here
+Route::prefix('developerInfo')->group(function () {
+Route::get('/view','Backend\DeveloperInfoController@index')->name('developerInfo.view');
+Route::get('/create','Backend\DeveloperInfoController@create')->name('developerInfo.create');
+Route::post('/store','Backend\DeveloperInfoController@store')->name('developerInfo.store');
+Route::get('/edit/{id}','Backend\DeveloperInfoController@edit')->name('developerInfo.edit');
+Route::post('/update/{id}','Backend\DeveloperInfoController@update')->name('developerInfo.update');
+Route::get('/destroy/{id}','Backend\DeveloperInfoController@destroy')->name('developerInfo.destroy');
+    });
+    
+    
+*******************************
+  **developer-view.blade.php**
+*******************************
+@extends('backend.layouts.admin-master')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header bg-success d-flex justify-content-between align-items-center">
-                    <h5>Student List</h5>
-                    <a href="{{route('create.student')}} "class="btn btn-dark">Create Student</a>
+
+<!-- Content Wrapper. Contains page content start -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-light">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#" class="text-dark" >Home</a></li>
+              <li class="breadcrumb-item active text-dark">User</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<div class="card">
+    <div class="head bg-muted">
+        <div class="card-body ">
+            <div class="row">
+                <div class="col-md-12  d-flex justify-content-between align-items-center">
+                    <h5 class="display-5">Developer List</h5>
+                    @if($users<1)
+                  <a href="{{route('developerInfo.create')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Create Developer</a>
+                    @endif
                 </div>
+            </div>
+        </div>
+    </div>
+            <table id="example2" class="table table-bordered table-hover text-center">
+                {{-- table start --}}
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Profession</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($developers as $key=> $developer)
+                    <tr>
+                        <td>{{$key+1}}</td>
+                        <td>{{$developer->name}}</td>
+                        <td>{{$developer->profession}}</td>
+                        <td><img src="{{asset('upload/user_images/'.$developer->image)}}" width="60px";height='60px' alt=""></td>
 
-                <div class="card-body ">
-                    <table class="table text-center">
-                        <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>Name</td>
-                                <td>Phone</td>
-                                <td>E-mail</td>
-                                <td>Image</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
 
-                            @foreach($student as $key=> $item)
-                            <tr>
-                                <td>{{($key->id)}}</td>
-                                <td>{{($item->name)}}</td>
-                                <td>{{($item->phone)}}</td>
-                                <td>{{($item->email)}}</td>
-                                <td><img src="{{asset('upload/user_images/'.$item->image)}}" width="90px";height='100px' alt=""></td>
+                        <td>
+                            <a href="{{route('developerInfo.edit',$developer->id)}}" class="btn btn-warning" title="Edit"><i class="fa fa-user-edit"></i></a>
+                            <a href="{{route('developerInfo.destroy',$developer->id)}} " id="delete" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{-- table end --}
+</div>
+{{-- card end --}}
 
-                                <td>
-                                    <a href="{{route('edit.student',$item->id)}} " class="btn btn-primary">Edit</a>
-                                    <a href="{{route('destroy.student',$item->id)}}" id="delete" title="Delete" class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
+  </div>
+ <!-- Content Wrapper. Contains page content end-->
+@endsection
+
+
+
+*******************************
+*****developer-create.php*****
+*******************************
+
+@extends('backend.layouts.admin-master')
+@section('content')
+
+<!-- Content Wrapper. Contains page content start -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-muted">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#" class="text-dark" >Home</a></li>
+              <li class="breadcrumb-item active text-dark">User</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<div class="card">
+    <div class="head bg-muted">
+        <div class="card-body ">
+            <div class="row">
+                <div class="col-md-12  d-flex justify-content-between align-items-center">
+                    <h5 class="display-5">Create DeveloperInfo</h5>
+                  <a href="{{route('developerInfo.view')}}" class="btn btn-warning text-dark"> <i class="fa fa-list"></i> Developer List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-3 pt-3">
+            <form action="{{route('developerInfo.store')}} " method="POST" enctype="multipart/form-data">
+                @csrf
+                @if(Session::has('success'))
+                <div class="btn btn-success">{{Session::get('success')}} </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
                             @endforeach
-                        </tbody>
-                    </table>
+                        </ul>
+                    </div>
+                @endif
+                <div class="form-group">
+                    <label for="my-input">Name</label>
+                    <input id="my-input" class="form-control" type="text" name="name" placeholder="Enter Your Title" required>
+                    <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="my-input">Frofession</label>
+                    <input id="my-input" class="form-control" type="text" name="profession" placeholder="Enter Your Profession" required>
+                       <font style="color:red">{{($errors->has('profession'))?($errors->first('profession')):''}} </font>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Image</label>
+                    <input id="my-input" class="form-control" type="file" name="image" required>
+                       <font style="color:red">{{($errors->has('image'))?($errors->first('image')):''}} </font>
+                </div>
+                <div class="form-group">
+                  <button type="submit" id="button" class="btn btn-success">Submit</button>
+                </div>
+
+            </form>
         </div>
     </div>
 </div>
-@endsection
-*******************************
-  **CreateStudent.blade.php**
-*******************************
-@extends('layouts.app')
+{{-- card end --}}
 
+  </div>
+ <!-- Content Wrapper. Contains page content end-->
+@endsection
+
+
+*******************************
+*****developer-edit.php*****
+*******************************
+@extends('backend.layouts.admin-master')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-success d-flex justify-content-between align-items-center">
-            <h5>Add Students</h5>
-                    <a href="{{route('home')}} " class="btn btn-dark">Student List</a>
-                </div>
 
-                <div class="card-body col-md-6 offset-3 ">
+<!-- Content Wrapper. Contains page content start -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header bg-muted">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#" class="text-dark" >Home</a></li>
+              <li class="breadcrumb-item active text-dark">User</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-                    <form action="{{route('store.student')}} " method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @if(Session::has('success'))
-                    <div class="btn btn-success">{{Session::get('success')}} </div>
-                    @endif
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <div class="form-group">
-                        <label for="my-input">Name</label>
-                        <input id="my-input" class="form-control"  placeholder="mh akash" type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="my-input">Phone</label>
-                        <input id="my-input" class="form-control"  placeholder="017XXX"type="tel" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="my-input">E-mail</label>
-                        <input id="my-input" class="form-control" placeholder="mhakash5000@gmail.com" type="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="my-input">Image</label>
-                        <input id="my-input" class="form-control" type="file" name="image" required>
-
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                    </form>
-
+<div class="card">
+    <div class="head bg-muted">
+        <div class="card-body ">
+            <div class="row">
+                <div class="col-md-12  d-flex justify-content-between align-items-center">
+                    <h5 class="display-5">Edit Developer Info</h5>
+                    <a href="{{route('developerInfo.view')}}" class="btn btn-warning text-dark"><i class="fa fa-plus-circle"></i>Developer List</a>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6 offset-3 pt-3">
+            <form action="{{route('developerInfo.update',$developerId->id)}} " method="POST" enctype="multipart/form-data" >
+                @csrf
+                @if(Session::has('success'))
+                <div class="btn btn-success">{{Session::get('success')}} </div>
+                @endif
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+               @endif
+                <div class="form-group">
+                    <label for="my-input">Name</label>
+                    <input id="my-input" class="form-control" type="text" name="name" value='{{$developerId->name}} ' required>
+                    <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Profession</label>
+                    <input id="my-input" class="form-control" type="tel" name="profession" value='{{$developerId->profession}} ' required>
+                       <font style="color:red">{{($errors->has('phone'))?($errors->first('phone')):''}} </font>
+                </div>
+                <div class="form-group">
+                    <label for="my-input">Image</label>
+                    <img src="{{asset('upload/user_images/'.$developerId->image)}}" id="image" style="width:425px;height:238px">
+                    <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Updated</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
 </div>
+{{-- card end --}}
+
+  </div>
+ <!-- Content Wrapper. Contains page content end-->
 @endsection
 
 
+
+
+
+
+
 *******************************
-*****StudentController.php*****
+*****DeveloperController*****
 *******************************
-
-
-
-
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Student;
+use App\Http\Controllers\Controller;
+use App\model\DeveloperInfo;
 use Illuminate\Http\Request;
+use Auth;
 use Session;
 
-class StudentController extends Controller
+class DeveloperInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -134,9 +287,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-       $student=Student::all();
-        return view('home',compact('student'));
+        $data['developers']=DeveloperInfo::all();
+        $data['users']=DeveloperInfo::count();
+        return view('backend.developerInfo.developer-view',$data);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -144,7 +299,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('StudentCrud.CreateStudent');
+
+        return view('backend.developerInfo.create-developer');
+
     }
 
     /**
@@ -157,36 +314,34 @@ class StudentController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'phone' => 'required',
-            'email' => 'required|unique:students|max:255',
-            'image' => 'required',
+            'profession' => 'required',
 
         ]);
-       $StudentData=new Student();
-       $StudentData->name=$request->name;
-       $StudentData->phone=$request->phone;
-       $StudentData->email=$request->email;
+       $developerData=new DeveloperInfo();
+       $developerData->name=$request->name;
+       $developerData->profession=$request->profession;
        if($request->hasFile('image')){
-            $file=$request->file('image');
-            $extension=$file->getClientOriginalExtension();
-            $myImage=time().'.'.$extension;
-            $file->move('upload/user_images/',$myImage);
-            $StudentData->image=$myImage;
-        }else{
-            return $request;
-            $StudentData->image='';
-        }
-       $StudentData->save();
-       Session::flash('success','Student Created successfully');
+        $file=$request->file('image');
+        $extension=$file->getClientOriginalExtension();
+        $newImage=time().'.'.$extension;
+        $file->move('upload/user_images/',$newImage);
+        $developerData->image=$newImage;
+    }else{
+        return $request;
+        $developerData->image='';
+    }
+       $developerData->save();
+       Session::flash('success','Data Inserted successfully');
        return redirect()->back();
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
         //
     }
@@ -194,67 +349,162 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student,$id)
+    public function edit($id)
     {
-        $studentId=Student::find($id);
-        return view('StudentCrud.EditStudent',compact('studentId'));
+        $developerId=DeveloperInfo::find($id);
+        return view('backend.developerInfo.edit-developer',compact('developerId'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-       $updateData=Student::find($id);
-       $updateData->name=$request->name;
-       $updateData->phone=$request->phone;
-       $updateData->email=$request->email;
-       if($request->hasFile('image')){
+        $update=DeveloperInfo::find($id);
+        $update->name=$request->name;
+        $update->profession=$request->profession;
+        $update->image=$request->image;
+        if($request->hasFile('image')){
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();
             $myImage=time().'.'.$extension;
             $file->move('upload/user_images/',$myImage);
-            $updateData->image=$myImage;
-        }else{
-            return $request;
-            $updateData->image='';
+            $update->image=$myImage;
         }
-       $updateData->save();
-       Session::flash('success','Student Updated successfully');
+        $update->save();
+        Session::flash('success','Data Updated successfully');
        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $deleteStudent=Student::find($id);
-        $deleteStudent->delete();
-        return redirect()->route('home');
+        $data=DeveloperInfo::find($id);
+        $data->delete();
+       return redirect()->route('developerInfo.view');
     }
 }
 
-*******************************
-       *****web.php*****
-*******************************
 
-//StudentController start form here..........................................
-Route::get('/home', 'StudentController@index')->name('home');
-Route::get('create.student','StudentController@create')->name('create.student');
-Route::post('store.student','StudentController@store')->name('store.student');
-Route::get('/edit.student/{id}','StudentController@edit')->name('edit.student');
-Route::post('/update.student/{id}','StudentController@update')->name('update.student');
-Route::get('/destroy.student/{id}','StudentController@destroy')->name('destroy.student');
 
+
+*******************************
+*****Sweet Alert*****
+*******************************
+ {{-- sweet alert --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
+  <script>
+      $(function(){
+          $(document).on('click','#delete',function(e){
+           e.preventDefault();
+           var link =$(this).attr('href');
+           const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.value) {
+                window.location.href=link;
+                swalWithBootstrapButtons.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'Your file is safe :)',
+                'error'
+                )
+            }
+            })
+                    });
+                });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('#image').change(function(e){
+        var reader =new FileReader();
+        reader.onload=function(e){
+            $('#showImage').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(e.target.files['0']);
+        });
+    });
+  </script>
+  <script>
+      //Image Show Before Upload Start
+$(document).ready(function(){
+    $('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        if (fileName){
+            $('#image').html(fileName);
+        }
+    });
+});
+
+function showImage(data, imgId){
+    if(data.files && data.files[0]){
+        var obj = new FileReader();
+
+        obj.onload = function(d){
+            var image = document.getElementById(imgId);
+            image.src = d.target.result;
+        }
+        obj.readAsDataURL(data.files[0]);
+    }
+}
+//Image Show Before Upload End
+  </script>
+  {{-- date picker for date --}}
+  <script>
+    $('#datepicker').datepicker({
+        uiLibrary: 'bootstrap4',
+        format:'yyyy-mm-dd'
+    });
+</script>
 
