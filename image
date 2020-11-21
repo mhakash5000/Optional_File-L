@@ -40,6 +40,10 @@ function showImage(data, imgId){
 }
 //javascript onchange method for image showing Before Upload
   </script>
+  //for create
+  <img src="{{asset('upload/user_images/')}}" id="image" style="width:464px;height:300px"> 
+  <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
+  //for update
  <img src="{{asset('upload/user_images/'.$data->image)}}" id="image" style="width:464px;height:300px">
  <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
  
