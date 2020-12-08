@@ -15,31 +15,31 @@
 
 
 0.
+<!-- Image Show Before Upload Start -->
 <script>
-       
-      //Image Show Before Upload Start and will pass id in input file($image)
-$(document).ready(function(){
-    $('input[type="file"]').change(function(e){
-        var fileName = e.target.files[0].name;
-        if (fileName){
-            $('#image').html(fileName);
-        }
+    $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            if (fileName){
+                $('#image').html(fileName);
+            }
+        });
     });
-});
 
-function showImage(data, imgId){
-    if(data.files && data.files[0]){
-        var obj = new FileReader();
+    function showImage(data, imgId){
+        if(data.files && data.files[0]){
+            var obj = new FileReader();
 
-        obj.onload = function(d){
-            var image = document.getElementById(imgId);
-            image.src = d.target.result;
+            obj.onload = function(d){
+                var image = document.getElementById(imgId);
+                image.src = d.target.result;
+            }
+            obj.readAsDataURL(data.files[0]);
         }
-        obj.readAsDataURL(data.files[0]);
     }
-}
-//javascript onchange method for image showing Before Upload
-  </script>
+
+</script>
+
   //for create
   <img src="{{asset('upload/user_images/')}}" id="image" style="width:464px;height:300px"> 
   <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
