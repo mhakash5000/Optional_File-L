@@ -6,3 +6,6 @@
     toastr.success("{{Session::get('success')}}");
     @endif
 </script>
+
+//type it in controller
+Session::flash('success','Post Created Successfully');
