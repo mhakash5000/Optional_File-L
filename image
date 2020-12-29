@@ -47,3 +47,8 @@
  <img src="{{asset('upload/user_images/'.$data->image)}}" id="image" style="width:464px;height:300px">
  <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
  
+ 
+//image create and update in create page
+ <img src="{{(!empty($productsEdit->image))?url('public/upload/user_images/'.$productsEdit->image):url('public/upload/user_images')}} " id="image" style="width:445px;height:200px">
+ <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value=''>
+                  
