@@ -1,0 +1,43 @@
+import React, {Component} from 'react';
+import axios from "axios";
+import ReactTable  from "react-table-6";
+import 'react-table-6/react-table.css';
+
+
+class MyTable extends Component {
+    constructor() {
+        super();
+        this.state={
+            CountryList:[]
+        }
+
+    }
+    componentDidMount() {
+     axios.get('https://restcountries.eu/rest/v2/all')
+         .then(response=>{
+             this.setState({CountryList:response.data})
+         })
+
+         .catch(error=>{
+             alert("Error")
+         })
+    }
+
+    render() {
+            const myData=this.state.CountryList
+            const col=[{Header:"CountryName",accessor:"name"},{Header:"Population",accessor: "population"}]
+        return (
+            <div>
+               <ReactTable
+               data={myData}
+               columns={col}
+               defaultPageSize={10}
+               pageSizeOptions={[10,20,30,40,50,60]}
+               />
+
+            </div>
+        );
+    }
+}
+
+export default MyTable;
