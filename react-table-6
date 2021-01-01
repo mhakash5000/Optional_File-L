@@ -1,0 +1,24 @@
+import React, {Component} from 'react';
+import ReactTable  from "react-table-6";
+import 'react-table-6/react-table.css';
+
+
+class MyTable extends Component {
+    render() {
+            const myData=[{name:"mh AKaSH",age:"28"},{name:"Rimon",age:"25"},{name:"Joriana",age:"20"},{name:"Joriana",age:"20"},{name:"Joriana",age:"20"}];
+            const col=[{Header:"Name",accessor:"name"},{Header:"Age",accessor: "age"}]
+        return (
+            <div>
+               <ReactTable
+               data={myData}
+               columns={col}
+               defaultPageSize={2}
+               pageSizeOptions={[2,4,6,8,10]}
+               />
+
+            </div>
+        );
+    }
+}
+
+export default MyTable;
