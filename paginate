@@ -1,0 +1,3 @@
+$data['products']=Product::orderBy('id','desc')->paginate(8); (in controller)
+
+{{$products->links()}} (in page where paginate will show)
