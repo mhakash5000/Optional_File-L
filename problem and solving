@@ -34,6 +34,8 @@ public function run()
  <font style="color:red">{{($errors->has('name'))?($errors->first('name')):''}} </font>
 
 
+
+
 4.sweet alert for delete and pass id(#delete) in <a href"" id="delete">delete</a>
  <script>
       $(function(){
@@ -89,3 +91,7 @@ example:
 @if(Auth::user()->role=='Admin/User')
 ......code here.......
 @endif
+
+5.
+composer require bumbummen99/shoppingcart
+composer dumb-autoload
