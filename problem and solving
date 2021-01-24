@@ -92,6 +92,6 @@ example:
 ......code here.......
 @endif
 
-5.
+5. ShopingCard
 composer require bumbummen99/shoppingcart
 composer dumb-autoload
