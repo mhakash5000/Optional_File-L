@@ -1,0 +1,13 @@
+    <form action="{{route('search.student')}}"  method="GET" class="form-inline">
+       @csrf
+       <input class="form-control mr-sm-2" type="search" name="student_search" placeholder="Search  Student" aria-label="Search">
+      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+   </form>
+ 
+ 
+ public function SearchStudent(){
+
+    $search_text=$_GET['student_search'];
+    $student=Student::where('name','LIKE','%'.$search_text.'%')->get();
+    return view('StudentManagement.SearchStudent',compact('student'));
+    }
