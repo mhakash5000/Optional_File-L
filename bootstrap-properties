@@ -1,3 +1,9 @@
 img-thumbnail  ->for white around img
 d-block m-auto ->to center img
 fa-2x          ->for icon big size
+
+//for alert
+<div class="alert alert-success" alert-dismissible>
+<button class="close" data-dismiss="alert">&times</button>
+Have you visited my channel
+</div>
