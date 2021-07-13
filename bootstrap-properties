@@ -1,0 +1,3 @@
+img-thumbnail  ->for white around img
+d-block m-auto ->to center img
+fa-2x          ->for icon big size
