@@ -14,5 +14,15 @@ Have you visited my channel
   <!-- pagination section start -->
               <ul class="pagination bg-dark py-3 justify-content-center">
                   <li class="page-item"> <a class="page-link" href="">1</a></li>
-                  <li class="page-item"> <a class="page-link" href="">2</a></li>
- <!-- pagination section start -->
+ <!-- pagination section end -->
+ 
+<!-- toggle dynamic tabs/pills start -->
+            <div class="other-section">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a data-toggle="pill" class="nav-link active" href="#edu">Education</a></li>
+                </ul>
+                <div class="tab-content">
+                    <p id="edu" class="tab-pane fade active">Education lorem ipsum dolor sit amet consectetu.</p>
+                </div>
+            </div>
+<!-- toggle dynamic tabs/pills end -->
