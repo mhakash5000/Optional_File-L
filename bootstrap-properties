@@ -10,3 +10,9 @@ Have you visited my channel
 
 <blockquote class="blockqute><blockquote/> ->new design will come
 <footer class="blockquote-footer"> for this type of style -- Mh Akash in <cite>Facebook<cite><footer/>
+
+  <!-- pagination section start -->
+              <ul class="pagination bg-dark py-3 justify-content-center">
+                  <li class="page-item"> <a class="page-link" href="">1</a></li>
+                  <li class="page-item"> <a class="page-link" href="">2</a></li>
+ <!-- pagination section start -->
