@@ -52,6 +52,7 @@
     }
     
                              Middleware AUTHENTICATE
+                             Middleware will create then put the value code
     public function handle($request, Closure $next)
     {
         if(auth::user()->role=='Admin'){
